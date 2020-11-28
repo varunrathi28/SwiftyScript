@@ -11,6 +11,13 @@
 		37396F94256EEC4E007F3C60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396F93256EEC4E007F3C60 /* ViewController.swift */; };
 		37396F96256EEC4F007F3C60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37396F95256EEC4F007F3C60 /* Assets.xcassets */; };
 		37396F99256EEC4F007F3C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37396F97256EEC4F007F3C60 /* Main.storyboard */; };
+		37396FA2256EF1D7007F3C60 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA1256EF1D7007F3C60 /* FileHandler.swift */; };
+		37396FA4256F00A0007F3C60 /* ConsoleErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA3256F00A0007F3C60 /* ConsoleErrorHandler.swift */; };
+		37396FA6257280EA007F3C60 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA5257280EA007F3C60 /* LineNumberRulerView.swift */; };
+		37396FA825729E07007F3C60 /* InputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA725729E07007F3C60 /* InputProcessor.swift */; };
+		37396FAA25729F2A007F3C60 /* ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA925729F2A007F3C60 /* ScriptRunner.swift */; };
+		37396FB42572EDF6007F3C60 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FB32572EDF6007F3C60 /* ConsoleView.swift */; };
+		37396FB62572F04F007F3C60 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 37396FB52572F04F007F3C60 /* Extensions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +28,13 @@
 		37396F98256EEC4F007F3C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37396F9A256EEC4F007F3C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37396F9B256EEC4F007F3C60 /* MacScript.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacScript.entitlements; sourceTree = "<group>"; };
+		37396FA1256EF1D7007F3C60 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
+		37396FA3256F00A0007F3C60 /* ConsoleErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleErrorHandler.swift; sourceTree = "<group>"; };
+		37396FA5257280EA007F3C60 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
+		37396FA725729E07007F3C60 /* InputProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputProcessor.swift; sourceTree = "<group>"; };
+		37396FA925729F2A007F3C60 /* ScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRunner.swift; sourceTree = "<group>"; };
+		37396FB32572EDF6007F3C60 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
+		37396FB52572F04F007F3C60 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,14 +67,29 @@
 		37396F90256EEC4E007F3C60 /* MacScript */ = {
 			isa = PBXGroup;
 			children = (
+				37396FB925730357007F3C60 /* CustomView */,
+				37396FB52572F04F007F3C60 /* Extensions */,
 				37396F91256EEC4E007F3C60 /* AppDelegate.swift */,
 				37396F93256EEC4E007F3C60 /* ViewController.swift */,
 				37396F95256EEC4F007F3C60 /* Assets.xcassets */,
 				37396F97256EEC4F007F3C60 /* Main.storyboard */,
 				37396F9A256EEC4F007F3C60 /* Info.plist */,
 				37396F9B256EEC4F007F3C60 /* MacScript.entitlements */,
+				37396FA1256EF1D7007F3C60 /* FileHandler.swift */,
+				37396FA3256F00A0007F3C60 /* ConsoleErrorHandler.swift */,
+				37396FA725729E07007F3C60 /* InputProcessor.swift */,
+				37396FA925729F2A007F3C60 /* ScriptRunner.swift */,
 			);
 			path = MacScript;
+			sourceTree = "<group>";
+		};
+		37396FB925730357007F3C60 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				37396FB32572EDF6007F3C60 /* ConsoleView.swift */,
+				37396FA5257280EA007F3C60 /* LineNumberRulerView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +152,7 @@
 			files = (
 				37396F96256EEC4F007F3C60 /* Assets.xcassets in Resources */,
 				37396F99256EEC4F007F3C60 /* Main.storyboard in Resources */,
+				37396FB62572F04F007F3C60 /* Extensions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +163,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37396FA2256EF1D7007F3C60 /* FileHandler.swift in Sources */,
+				37396FA825729E07007F3C60 /* InputProcessor.swift in Sources */,
+				37396FB42572EDF6007F3C60 /* ConsoleView.swift in Sources */,
 				37396F94256EEC4E007F3C60 /* ViewController.swift in Sources */,
 				37396F92256EEC4E007F3C60 /* AppDelegate.swift in Sources */,
+				37396FA4256F00A0007F3C60 /* ConsoleErrorHandler.swift in Sources */,
+				37396FA6257280EA007F3C60 /* LineNumberRulerView.swift in Sources */,
+				37396FAA25729F2A007F3C60 /* ScriptRunner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

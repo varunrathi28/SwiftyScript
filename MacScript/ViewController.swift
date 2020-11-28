@@ -10,11 +10,26 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet var textView:NSTextView!
-    var fileHandle = FileHandler()
+    @IBOutlet var consoleView:ConsoleView!
+    var inputProcessor = InputProcessor()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         self.textView.lnv_setUpLineNumberView()
+        //addTestView()
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func addTestView(){
+        
+       
+        let container = NSTextContainer()
+        let frame = NSRect(x: 500, y: 300, width: 30, height: 30)
+        let textview = ConsoleView(frame: frame, textContainer: container)
+        textView.backgroundColor = .red
+        consoleView.addSubview(textView)
     }
     
     override var representedObject: Any? {
@@ -26,8 +41,10 @@ class ViewController: NSViewController {
     
     @IBAction func runClicked(sender:NSButton) {
         let inputText = textView.textStorage?.string
-        fileHandle.saveTextToFile(inputText)
-      //  highlightLine(line: 0)
+        consoleView.addToLogs(inputText!)
+        
+     //   inputProcessor.processInput(input: inputText)
+     //   highlightLine(line: 3)
     }
     
 

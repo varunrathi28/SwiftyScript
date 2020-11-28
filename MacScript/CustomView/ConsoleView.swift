@@ -46,7 +46,49 @@ class ConsoleView: NSTextView {
             return textView
        }()
     
+    public  func addToLogs(_ text: String, color: NSColor = .white, global: Bool = true) {
+        let formattedText = NSMutableAttributedString(string: text)
+        let textRange = NSRange(location: 0, length: formattedText.length)
+        formattedText.addAttributes(textAppearance, range:textRange)
+        formattedText.addAttribute(.foregroundColor, value: color, range: textRange)
+        print(formattedText, global: global)
+    }
     
+    public func print(_ text: NSAttributedString, global: Bool = true) {
+        
+        defer {
+            if global {
+                Swift.print(text.string)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            let timeStamped = NSMutableAttributedString(string: "\(self.currentTimeStamp) ")
+            let range = NSRange(location: 0, length: timeStamped.length)
+            timeStamped.addAttributes(self.textAppearance, range: range)
+            timeStamped.append(text)
+            timeStamped.append(NSAttributedString.breakLine())
+            
+            // Add new log to the existing logs
+            self.textStorage?.append(timeStamped)
+            self.scrollToBottom()
+            
+        }
+    }
+    
+    public  func clear() {
+           DispatchQueue.main.async {
+            //FIXME:- find way to clear text
+               self.scrollToBottom()
+           }
+       }
+    
+    public  func scrollToBottom() {
+        guard let container = self.textContainer else { return }
+        self.layoutManager?.ensureLayout(for: container)
+        let offset = CGPoint(x: 0, y: (container.containerSize.height - self.frame.size.height))
+        self.scroll(offset)
+       }
 }
 
 

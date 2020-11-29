@@ -18,6 +18,7 @@
 		37396FAA25729F2A007F3C60 /* ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA925729F2A007F3C60 /* ScriptRunner.swift */; };
 		37396FB42572EDF6007F3C60 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FB32572EDF6007F3C60 /* ConsoleView.swift */; };
 		37396FB62572F04F007F3C60 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 37396FB52572F04F007F3C60 /* Extensions */; };
+		3745769C257313E000D02B35 /* SwiftScript.command in Resources */ = {isa = PBXBuildFile; fileRef = 3745769B257313E000D02B35 /* SwiftScript.command */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		37396FA925729F2A007F3C60 /* ScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRunner.swift; sourceTree = "<group>"; };
 		37396FB32572EDF6007F3C60 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
 		37396FB52572F04F007F3C60 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extensions; sourceTree = "<group>"; };
+		3745769B257313E000D02B35 /* SwiftScript.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftScript.command; sourceTree = "<group>"; };
+		37654A7C2573F97A0038BEDF /* MacScriptDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacScriptDebug.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,7 @@
 		37396F90256EEC4E007F3C60 /* MacScript */ = {
 			isa = PBXGroup;
 			children = (
+				37654A7C2573F97A0038BEDF /* MacScriptDebug.entitlements */,
 				37396FB925730357007F3C60 /* CustomView */,
 				37396FB52572F04F007F3C60 /* Extensions */,
 				37396F91256EEC4E007F3C60 /* AppDelegate.swift */,
@@ -79,6 +83,7 @@
 				37396FA3256F00A0007F3C60 /* ConsoleErrorHandler.swift */,
 				37396FA725729E07007F3C60 /* InputProcessor.swift */,
 				37396FA925729F2A007F3C60 /* ScriptRunner.swift */,
+				3745769B257313E000D02B35 /* SwiftScript.command */,
 			);
 			path = MacScript;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			files = (
 				37396F96256EEC4F007F3C60 /* Assets.xcassets in Resources */,
 				37396F99256EEC4F007F3C60 /* Main.storyboard in Resources */,
+				3745769C257313E000D02B35 /* SwiftScript.command in Resources */,
 				37396FB62572F04F007F3C60 /* Extensions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MacScript/MacScript.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacScript/MacScriptDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MacScript/Info.plist;

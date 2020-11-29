@@ -1,5 +1,5 @@
 //
-//  ConsoleErrorHandler.swift
+//  ConsoleOutputHandler.swift
 //  MacScript
 //
 //  Created by VR on 26/11/20.
@@ -9,33 +9,7 @@
 import Foundation
 import Cocoa
 
-public enum ConsoleLogType {
-    case standardOutput
-    case standardError
-}
-struct LogErrorLink {
-    let line:Int
-    let offset:Int
-
-    
-    
-    init?(with str:String) {
-        if let tuples = str.dropLast().dropFirst().split(separator: ":") as? [String.SubSequence], tuples.count == 2, let line = Int(tuples[0]) , let offset = Int(tuples[1]) {
-            self.line = line
-            self.offset = offset
-        }
-        else{
-            return nil
-        }
-    }
-    
-    var logTargetLocationStr:String {
-        return "\(line).\(offset)"
-    }
-}
-
-
-public class ConsoleErrorHandler:NSObject {
+public class ConsoleOutputHandler:NSObject {
     
     weak var console:NSTextView?
     var clickCompletion:((LogErrorLink)->(Void))?
@@ -126,7 +100,7 @@ public class ConsoleErrorHandler:NSObject {
     }
 }
 
-extension ConsoleErrorHandler : NSTextViewDelegate {
+extension ConsoleOutputHandler : NSTextViewDelegate {
     
     public func textView(_ textView: NSTextView, clickedOnLink link: Any, at charIndex: Int) -> Bool {
         if let targetLink = link as? LogErrorLink {

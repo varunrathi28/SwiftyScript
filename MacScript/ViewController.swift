@@ -20,7 +20,7 @@ class ViewController: NSViewController {
     @IBOutlet var btnRun:NSButton!
     @IBOutlet var btnStop:NSButton!
     @IBOutlet var consoleTextView:NSTextView!
-    var consoleErrorHandler:ConsoleErrorHandler! // For handling log data and formatting
+    var consoleErrorHandler:ConsoleOutputHandler! // For handling log data and formatting
     var inputProcessor = InputProcessor() // For file Process and hanlding
     
     var isRunning = false {
@@ -50,7 +50,7 @@ class ViewController: NSViewController {
         self.consoleTextView.isEditable = false
         self.textView.lnv_setUpLineNumberView()
         changeUIState(for: .stopped)
-        self.consoleErrorHandler = ConsoleErrorHandler(consoleTextView)
+        self.consoleErrorHandler = ConsoleOutputHandler(consoleTextView)
         self.consoleErrorHandler.clickCompletion = { [weak self] targetLink in
             guard let self = self else { return }
             self.textView.highlightLine(line: targetLink.line - 1)

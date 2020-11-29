@@ -14,7 +14,7 @@ final public class FileHandler: NSObject {
 
    
    /**
-       @output : retuns the tuple of status and file pathj
+       @output : retuns the tuple of status and file path
      */
    public func saveTextToFile(_ input:String?)-> (Bool,String?) {
         guard let input = input else { return (false, nil) }

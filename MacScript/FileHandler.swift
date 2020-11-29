@@ -50,11 +50,6 @@ final public class FileHandler: NSObject {
         }
     }
     
-    func createDirectory(){
-
-    }
-    
-    
     //MARK:- Utility methods for  path URLs
     
     private func getFolderPath() -> URL {

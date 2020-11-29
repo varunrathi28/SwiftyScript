@@ -7,7 +7,6 @@
 //
 
 import Foundation
-typealias FileOperationResult = (Bool, String?)
 
 class InputProcessor {
     // dependencies
@@ -15,11 +14,14 @@ class InputProcessor {
     private let scriptRunner = ScriptRunner()
     
 
-    public func processInput(input:String?){
+    // Returns the .swift file path if file operation is successfull.
+    public func processInput(input:String?) ->String{
         let operationResult = fileHandler.saveTextToFile(input)
         if operationResult.0 == true , let fileDirectoryPath = operationResult.1 {
-          let scriptResult = scriptRunner.shell("swift \(fileDirectoryPath)")
-           print(scriptResult)
+            return fileDirectoryPath
+         // let scriptResult = scriptRunner.shell("swift \(fileDirectoryPath)")
+        //   print(scriptResult)
         }
+        return ""
     }
 }

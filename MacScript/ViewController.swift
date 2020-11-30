@@ -71,11 +71,8 @@ class ViewController: NSViewController {
         isRunning = true
         consoleTextView.clearText()
         let inputText = textView.textStorage?.string
-        //consoleView.addToLogs(inputText!)
         let path = inputProcessor.processInput(input: inputText)
-        var arguments = [String]()
-        arguments.append(path)
-        runScript(arguments)
+        runScript([path])
     }
     
     @IBAction func stopClicked(sender:NSButton){

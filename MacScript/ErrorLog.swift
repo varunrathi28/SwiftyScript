@@ -11,11 +11,11 @@ import Foundation
 struct LogErrorLink {
     let line:Int
     let offset:Int
+    let SEPARATOR:Character = ":"
 
-    
-    
     init?(with str:String) {
-        if let tuples = str.dropLast().dropFirst().split(separator: ":") as? [String.SubSequence], tuples.count == 2, let line = Int(tuples[0]) , let offset = Int(tuples[1]) {
+        let tuples = str.split(separator: SEPARATOR)
+        if  tuples.count == 2, let line = Int(tuples[0]) , let offset = Int(tuples[1]) {
             self.line = line
             self.offset = offset
         }
@@ -23,7 +23,7 @@ struct LogErrorLink {
             return nil
         }
     }
-    
+
     var logTargetLocationStr:String {
         return "\(line).\(offset)"
     }

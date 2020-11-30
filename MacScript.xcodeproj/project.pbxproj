@@ -22,6 +22,7 @@
 		37654A82257434210038BEDF /* TextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A81257434210038BEDF /* TextView+Additions.swift */; };
 		37654A8425743AE20038BEDF /* ErrorLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A8325743AE20038BEDF /* ErrorLog.swift */; };
 		37654A8625743B510038BEDF /* ConsoleLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A8525743B510038BEDF /* ConsoleLogType.swift */; };
+		37ECE9AC257552A60015C356 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECE9AB257552A60015C356 /* String+NSRange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		37654A81257434210038BEDF /* TextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextView+Additions.swift"; sourceTree = "<group>"; };
 		37654A8325743AE20038BEDF /* ErrorLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLog.swift; sourceTree = "<group>"; };
 		37654A8525743B510038BEDF /* ConsoleLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogType.swift; sourceTree = "<group>"; };
+		37ECE9AB257552A60015C356 /* String+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				3745769B257313E000D02B35 /* SwiftScript.command */,
 				37654A8325743AE20038BEDF /* ErrorLog.swift */,
 				37654A8525743B510038BEDF /* ConsoleLogType.swift */,
+				37ECE9AB257552A60015C356 /* String+NSRange.swift */,
 			);
 			path = MacScript;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				37654A8625743B510038BEDF /* ConsoleLogType.swift in Sources */,
 				37396FAA25729F2A007F3C60 /* ScriptRunner.swift in Sources */,
 				37654A8425743AE20038BEDF /* ErrorLog.swift in Sources */,
+				37ECE9AC257552A60015C356 /* String+NSRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

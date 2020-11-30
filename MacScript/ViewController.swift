@@ -51,9 +51,10 @@ class ViewController: NSViewController {
         self.textView.lnv_setUpLineNumberView()
         changeUIState(for: .stopped)
         self.consoleErrorHandler = ConsoleOutputHandler(consoleTextView)
-        self.consoleErrorHandler.clickCompletion = { [weak self] targetLink in
+        self.consoleErrorHandler.clickCompletion = { [weak self] targetLocation in
             guard let self = self else { return }
-            self.textView.highlightLine(line: targetLink.line - 1)
+            // Since Gyphs are 0-based index
+            self.textView.highlightLine(line:targetLocation.line - 1)
         }
         
     }

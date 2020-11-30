@@ -49,6 +49,7 @@ class ViewController: NSViewController {
     func setupTextViewComponents() {
         self.consoleTextView.isEditable = false
         self.textView.lnv_setUpLineNumberView()
+        self.consoleTextView.backgroundColor = .black
         changeUIState(for: .stopped)
         self.consoleErrorHandler = ConsoleOutputHandler(consoleTextView)
         self.consoleErrorHandler.clickCompletion = { [weak self] targetLocation in

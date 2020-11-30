@@ -9,6 +9,12 @@
 import Foundation
 import Cocoa
 
+
+struct ErrorLocation {
+    let fullText:String
+    let linkRange:NSRange
+}
+
 public class ConsoleOutputHandler:NSObject {
     
     weak var console:NSTextView?
@@ -45,6 +51,11 @@ public class ConsoleOutputHandler:NSObject {
         }
        
     public  func addToLogs(_ text: String,outputType: ConsoleLogType = .standardOutput, color: NSColor = .white, global: Bool = true) {
+        
+        guard text.count > 0  else { return }
+        
+        print("Log = : \(text)")
+        
         let formattedText = NSMutableAttributedString(string: text)
         let textRange = NSRange(location: 0, length: formattedText.length)
         formattedText.addAttributes(textAppearance, range:textRange)
@@ -52,11 +63,11 @@ public class ConsoleOutputHandler:NSObject {
         if outputType == .standardError {
             formattedText.addAttributes(errorAppearance, range:textRange)
             formattedText.addAttribute(.foregroundColor, value: NSColor.red , range: textRange)
-            if let errorTarget = getErrorLogTargetLink(from: formattedText.string) {
-                formattedText.addAttribute(.link, value:errorTarget, range: textRange)
+            if let errorLocations = getErrorLogTargetLink(from: formattedText.string) {
+                for location in errorLocations {
+                    formattedText.addAttribute(.link, value:location.fullText, range: location.linkRange)
+                }
             }
-            
-            
         }
         else{
             formattedText.addAttributes(textAppearance, range:textRange)
@@ -66,7 +77,7 @@ public class ConsoleOutputHandler:NSObject {
     }
     
     public func printLog(_ text: NSAttributedString, global: Bool = true) {
-        
+       
         defer {
             if global {
                 Swift.print(text.string)
@@ -74,6 +85,7 @@ public class ConsoleOutputHandler:NSObject {
         }
         
         DispatchQueue.main.async {
+            print("timestamping: \(text)")
             let timeStamped = NSMutableAttributedString(string: "\(self.currentTimeStamp) ")
             let range = NSRange(location: 0, length: timeStamped.length)
             timeStamped.addAttributes(self.textAppearance, range: range)
@@ -88,23 +100,33 @@ public class ConsoleOutputHandler:NSObject {
         }
     }
     
-    func getErrorLogTargetLink(from error:String) -> LogErrorLink? {
-        if let range = error.range(of: #":[0-9]*:[0-9]*:"#,
-                                   options: .regularExpression) {
-            let text = error.substring(with: range)
-            print("error parsed: \(text) \(range)")
-            return LogErrorLink(with: text)
+    func getErrorLogTargetLink(from error:String) -> [ErrorLocation]? {
+        let fileName = FileHandler.getFilePathURL().absoluteString
+        let pattern = "\(fileName):[1-9]+:[1-9]+:"
+        let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+        let range = NSRange(location: 0, length: error.utf16.count)
+        let matches = regex.matches(in: error, options: [], range: range)
+        return matches.compactMap { result  -> ErrorLocation? in
+            if let matchString = (error.substring(with: result.range)) {
+                return ErrorLocation(fullText:String(matchString) , linkRange: result.range)
             }
-    
-        return nil
+            return nil
+        }
     }
+    
+    
 }
 
 extension ConsoleOutputHandler : NSTextViewDelegate {
     
     public func textView(_ textView: NSTextView, clickedOnLink link: Any, at charIndex: Int) -> Bool {
-        if let targetLink = link as? LogErrorLink {
-           clickCompletion?(targetLink)
+        if let targetLink = link as? String {
+            if let range = targetLink.range(of: #"[0-9]+:[0-9]+"#, options: .regularExpression) {
+                if let linkTargetInfo = LogErrorLink(with: targetLink.substring(with: range)) {
+                    clickCompletion?(linkTargetInfo)
+                }
+            }
+
         }
         return true
     }

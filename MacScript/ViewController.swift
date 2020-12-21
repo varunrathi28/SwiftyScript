@@ -21,7 +21,7 @@ class ViewController: NSViewController {
     @IBOutlet var btnStop:NSButton!
     @IBOutlet var consoleTextView:NSTextView!
     var consoleErrorHandler:ConsoleOutputHandler! // For handling log data and formatting
-    var inputProcessor = InputProcessor() // For file Process and hanlding
+    var inputProcessor = InputProcessor(ScriptFileHandler()) // For file Process and hanlding
     
     var isRunning = false {
         didSet {

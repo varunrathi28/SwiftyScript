@@ -101,7 +101,7 @@ public class ConsoleOutputHandler:NSObject {
     }
     
     func getErrorLogTargetLink(from error:String) -> [ErrorLocation]? {
-        let fileName = FileHandler.getFilePathURL().absoluteString
+        let fileName = ScriptFileHandler.getFilePathURL().absoluteString
         let pattern = "\(fileName):[1-9]+:[1-9]+:"
         let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
         let range = NSRange(location: 0, length: error.utf16.count)

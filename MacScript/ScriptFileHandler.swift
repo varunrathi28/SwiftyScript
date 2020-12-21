@@ -8,20 +8,26 @@
 
 import Foundation
 
-final public class FileHandler: NSObject {
+final public class ScriptFileHandler: FileHanderInterface {
+
     static let fileName = "Script.swift"
     static let folderName = "MacScript"
 
    /**
        @output : retuns the tuple of status and file path
      */
-   public func saveTextToFile(_ input:String?)-> (Bool,String?) {
+   
+    public static func getFilePathURL() -> URL {
+           return getFolderPath().appendingPathComponent(fileName)
+    }
+    
+    public func saveToFile(_ input:String?)-> (Bool,String?) {
         guard let input = input else { return (false, nil) }
-    let folderPath = FileHandler.getFolderPath()
-    checkAndCreateFileIfNotExists(at: folderPath, filename: FileHandler.fileName ,input)
+        let folderPath = ScriptFileHandler.getFolderPath()
+        checkAndCreateFileIfNotExists(at: folderPath, filename:ScriptFileHandler.fileName ,input)
         do {
-            let filePath = FileHandler.getFilePathURL().absoluteString
-           try input.write(toFile: filePath , atomically: true, encoding: .utf8)
+            let filePath = ScriptFileHandler.getFilePathURL().absoluteString
+            try input.write(toFile: filePath , atomically: true, encoding: .utf8)
             return (true, filePath)
         }
         catch{
@@ -30,14 +36,14 @@ final public class FileHandler: NSObject {
         }
     }
     
-    func checkAndCreateFileIfNotExists(at path:URL, filename:String,_ input:String){
+   private func checkAndCreateFileIfNotExists(at path:URL, filename:String,_ input:String){
         let filePathStr = path.absoluteString
         let fileManager = FileManager.default
                 
         if !fileManager.fileExists(atPath: filePathStr) {
             do {
                 _ = try fileManager.createDirectory(atPath: filePathStr, withIntermediateDirectories: true, attributes: nil)
-                let fileFullPath = path.appendingPathComponent(FileHandler.fileName).absoluteString
+                let fileFullPath = path.appendingPathComponent(ScriptFileHandler.fileName).absoluteString
                 let status = fileManager.createFile(atPath: fileFullPath, contents: nil, attributes: nil)
                 print("File Created: \(status)")
             }
@@ -52,16 +58,11 @@ final public class FileHandler: NSObject {
     //MARK:- Utility methods for  path URLs
     
     private static func getFolderPath() -> URL {
-        return FileHandler.getDocumentsDirectory().appendingPathComponent(folderName)
+        return ScriptFileHandler.getDocumentsDirectory().appendingPathComponent(folderName)
     }
     
     private static func getDocumentsDirectory() -> URL {
        let paths =  NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-      //  let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return URL(string: paths)!
-    }
-    
-    public static func getFilePathURL() -> URL {
-        return getFolderPath().appendingPathComponent(fileName)
     }
 }

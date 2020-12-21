@@ -11,7 +11,7 @@
 		37396F94256EEC4E007F3C60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396F93256EEC4E007F3C60 /* ViewController.swift */; };
 		37396F96256EEC4F007F3C60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37396F95256EEC4F007F3C60 /* Assets.xcassets */; };
 		37396F99256EEC4F007F3C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37396F97256EEC4F007F3C60 /* Main.storyboard */; };
-		37396FA2256EF1D7007F3C60 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA1256EF1D7007F3C60 /* FileHandler.swift */; };
+		37396FA2256EF1D7007F3C60 /* ScriptFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA1256EF1D7007F3C60 /* ScriptFileHandler.swift */; };
 		37396FA4256F00A0007F3C60 /* ConsoleOutputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA3256F00A0007F3C60 /* ConsoleOutputHandler.swift */; };
 		37396FA6257280EA007F3C60 /* LineNumberRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA5257280EA007F3C60 /* LineNumberRulerView.swift */; };
 		37396FA825729E07007F3C60 /* InputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA725729E07007F3C60 /* InputProcessor.swift */; };
@@ -22,6 +22,7 @@
 		37654A82257434210038BEDF /* TextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A81257434210038BEDF /* TextView+Additions.swift */; };
 		37654A8425743AE20038BEDF /* ErrorLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A8325743AE20038BEDF /* ErrorLog.swift */; };
 		37654A8625743B510038BEDF /* ConsoleLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A8525743B510038BEDF /* ConsoleLogType.swift */; };
+		37D71DBE2590ECDD001D2464 /* FileHandlerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D71DBD2590ECDD001D2464 /* FileHandlerInterface.swift */; };
 		37ECE9AC257552A60015C356 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECE9AB257552A60015C356 /* String+NSRange.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +34,7 @@
 		37396F98256EEC4F007F3C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37396F9A256EEC4F007F3C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37396F9B256EEC4F007F3C60 /* MacScript.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacScript.entitlements; sourceTree = "<group>"; };
-		37396FA1256EF1D7007F3C60 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
+		37396FA1256EF1D7007F3C60 /* ScriptFileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptFileHandler.swift; sourceTree = "<group>"; };
 		37396FA3256F00A0007F3C60 /* ConsoleOutputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConsoleOutputHandler.swift; path = Console/ConsoleOutputHandler.swift; sourceTree = "<group>"; };
 		37396FA5257280EA007F3C60 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
 		37396FA725729E07007F3C60 /* InputProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputProcessor.swift; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		37654A81257434210038BEDF /* TextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextView+Additions.swift"; sourceTree = "<group>"; };
 		37654A8325743AE20038BEDF /* ErrorLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLog.swift; sourceTree = "<group>"; };
 		37654A8525743B510038BEDF /* ConsoleLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogType.swift; sourceTree = "<group>"; };
+		37D71DBD2590ECDD001D2464 /* FileHandlerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandlerInterface.swift; sourceTree = "<group>"; };
 		37ECE9AB257552A60015C356 /* String+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				37396FA3256F00A0007F3C60 /* ConsoleOutputHandler.swift */,
-				37396FA1256EF1D7007F3C60 /* FileHandler.swift */,
+				37D71DBD2590ECDD001D2464 /* FileHandlerInterface.swift */,
+				37396FA1256EF1D7007F3C60 /* ScriptFileHandler.swift */,
 				37654A81257434210038BEDF /* TextView+Additions.swift */,
 				37654A7C2573F97A0038BEDF /* MacScriptDebug.entitlements */,
 				37396FB925730357007F3C60 /* CustomView */,
@@ -181,13 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37396FA2256EF1D7007F3C60 /* FileHandler.swift in Sources */,
+				37396FA2256EF1D7007F3C60 /* ScriptFileHandler.swift in Sources */,
 				37396FA825729E07007F3C60 /* InputProcessor.swift in Sources */,
 				37396FB42572EDF6007F3C60 /* ConsoleView.swift in Sources */,
 				37396F94256EEC4E007F3C60 /* ViewController.swift in Sources */,
 				37396F92256EEC4E007F3C60 /* AppDelegate.swift in Sources */,
 				37654A82257434210038BEDF /* TextView+Additions.swift in Sources */,
 				37396FA4256F00A0007F3C60 /* ConsoleOutputHandler.swift in Sources */,
+				37D71DBE2590ECDD001D2464 /* FileHandlerInterface.swift in Sources */,
 				37396FA6257280EA007F3C60 /* LineNumberRulerView.swift in Sources */,
 				37654A8625743B510038BEDF /* ConsoleLogType.swift in Sources */,
 				37396FAA25729F2A007F3C60 /* ScriptRunner.swift in Sources */,

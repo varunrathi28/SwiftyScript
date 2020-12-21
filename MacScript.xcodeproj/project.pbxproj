@@ -17,13 +17,13 @@
 		37396FA825729E07007F3C60 /* InputProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA725729E07007F3C60 /* InputProcessor.swift */; };
 		37396FAA25729F2A007F3C60 /* ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FA925729F2A007F3C60 /* ScriptRunner.swift */; };
 		37396FB42572EDF6007F3C60 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37396FB32572EDF6007F3C60 /* ConsoleView.swift */; };
-		37396FB62572F04F007F3C60 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 37396FB52572F04F007F3C60 /* Extensions */; };
 		3745769C257313E000D02B35 /* SwiftScript.command in Resources */ = {isa = PBXBuildFile; fileRef = 3745769B257313E000D02B35 /* SwiftScript.command */; };
-		37654A82257434210038BEDF /* TextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A81257434210038BEDF /* TextView+Additions.swift */; };
 		37654A8425743AE20038BEDF /* ErrorLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A8325743AE20038BEDF /* ErrorLog.swift */; };
 		37654A8625743B510038BEDF /* ConsoleLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37654A8525743B510038BEDF /* ConsoleLogType.swift */; };
 		37D71DBE2590ECDD001D2464 /* FileHandlerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D71DBD2590ECDD001D2464 /* FileHandlerInterface.swift */; };
-		37ECE9AC257552A60015C356 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECE9AB257552A60015C356 /* String+NSRange.swift */; };
+		37D71DCA2590FBC0001D2464 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D71DC72590FBC0001D2464 /* AttributedString.swift */; };
+		37D71DCB2590FBC0001D2464 /* TextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D71DC82590FBC0001D2464 /* TextView+Additions.swift */; };
+		37D71DCC2590FBC0001D2464 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D71DC92590FBC0001D2464 /* String+NSRange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,19 +35,19 @@
 		37396F9A256EEC4F007F3C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37396F9B256EEC4F007F3C60 /* MacScript.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacScript.entitlements; sourceTree = "<group>"; };
 		37396FA1256EF1D7007F3C60 /* ScriptFileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptFileHandler.swift; sourceTree = "<group>"; };
-		37396FA3256F00A0007F3C60 /* ConsoleOutputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConsoleOutputHandler.swift; path = Console/ConsoleOutputHandler.swift; sourceTree = "<group>"; };
+		37396FA3256F00A0007F3C60 /* ConsoleOutputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleOutputHandler.swift; sourceTree = "<group>"; };
 		37396FA5257280EA007F3C60 /* LineNumberRulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumberRulerView.swift; sourceTree = "<group>"; };
 		37396FA725729E07007F3C60 /* InputProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputProcessor.swift; sourceTree = "<group>"; };
 		37396FA925729F2A007F3C60 /* ScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRunner.swift; sourceTree = "<group>"; };
 		37396FB32572EDF6007F3C60 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
-		37396FB52572F04F007F3C60 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extensions; sourceTree = "<group>"; };
 		3745769B257313E000D02B35 /* SwiftScript.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftScript.command; sourceTree = "<group>"; };
 		37654A7C2573F97A0038BEDF /* MacScriptDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacScriptDebug.entitlements; sourceTree = "<group>"; };
-		37654A81257434210038BEDF /* TextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextView+Additions.swift"; sourceTree = "<group>"; };
 		37654A8325743AE20038BEDF /* ErrorLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLog.swift; sourceTree = "<group>"; };
 		37654A8525743B510038BEDF /* ConsoleLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogType.swift; sourceTree = "<group>"; };
 		37D71DBD2590ECDD001D2464 /* FileHandlerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandlerInterface.swift; sourceTree = "<group>"; };
-		37ECE9AB257552A60015C356 /* String+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
+		37D71DC72590FBC0001D2464 /* AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		37D71DC82590FBC0001D2464 /* TextView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextView+Additions.swift"; sourceTree = "<group>"; };
+		37D71DC92590FBC0001D2464 /* String+NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,25 +80,14 @@
 		37396F90256EEC4E007F3C60 /* MacScript */ = {
 			isa = PBXGroup;
 			children = (
-				37396FA3256F00A0007F3C60 /* ConsoleOutputHandler.swift */,
-				37D71DBD2590ECDD001D2464 /* FileHandlerInterface.swift */,
-				37396FA1256EF1D7007F3C60 /* ScriptFileHandler.swift */,
-				37654A81257434210038BEDF /* TextView+Additions.swift */,
-				37654A7C2573F97A0038BEDF /* MacScriptDebug.entitlements */,
-				37396FB925730357007F3C60 /* CustomView */,
-				37396FB52572F04F007F3C60 /* Extensions */,
-				37396F91256EEC4E007F3C60 /* AppDelegate.swift */,
-				37396F93256EEC4E007F3C60 /* ViewController.swift */,
-				37396F95256EEC4F007F3C60 /* Assets.xcassets */,
-				37396F97256EEC4F007F3C60 /* Main.storyboard */,
 				37396F9A256EEC4F007F3C60 /* Info.plist */,
-				37396F9B256EEC4F007F3C60 /* MacScript.entitlements */,
-				37396FA725729E07007F3C60 /* InputProcessor.swift */,
+				37D71DC62590FBAE001D2464 /* Helper Classes */,
+				37D71DC52590FB39001D2464 /* Resources */,
+				37D71DC42590FAF6001D2464 /* File Handler */,
+				37D71DC32590FADF001D2464 /* Input */,
+				37D71DC22590FAC0001D2464 /* Output  */,
+				37D71DC12590FA89001D2464 /* View */,
 				37396FA925729F2A007F3C60 /* ScriptRunner.swift */,
-				3745769B257313E000D02B35 /* SwiftScript.command */,
-				37654A8325743AE20038BEDF /* ErrorLog.swift */,
-				37654A8525743B510038BEDF /* ConsoleLogType.swift */,
-				37ECE9AB257552A60015C356 /* String+NSRange.swift */,
 			);
 			path = MacScript;
 			sourceTree = "<group>";
@@ -110,6 +99,65 @@
 				37396FA5257280EA007F3C60 /* LineNumberRulerView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		37D71DC12590FA89001D2464 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37396FB925730357007F3C60 /* CustomView */,
+				37396F93256EEC4E007F3C60 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37D71DC22590FAC0001D2464 /* Output  */ = {
+			isa = PBXGroup;
+			children = (
+				37654A8525743B510038BEDF /* ConsoleLogType.swift */,
+				37654A8325743AE20038BEDF /* ErrorLog.swift */,
+				37396FA3256F00A0007F3C60 /* ConsoleOutputHandler.swift */,
+			);
+			path = "Output ";
+			sourceTree = "<group>";
+		};
+		37D71DC32590FADF001D2464 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				37396FA725729E07007F3C60 /* InputProcessor.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		37D71DC42590FAF6001D2464 /* File Handler */ = {
+			isa = PBXGroup;
+			children = (
+				37D71DBD2590ECDD001D2464 /* FileHandlerInterface.swift */,
+				37396FA1256EF1D7007F3C60 /* ScriptFileHandler.swift */,
+			);
+			path = "File Handler";
+			sourceTree = "<group>";
+		};
+		37D71DC52590FB39001D2464 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				37396F97256EEC4F007F3C60 /* Main.storyboard */,
+				37396F95256EEC4F007F3C60 /* Assets.xcassets */,
+				37396F91256EEC4E007F3C60 /* AppDelegate.swift */,
+				37654A7C2573F97A0038BEDF /* MacScriptDebug.entitlements */,
+				3745769B257313E000D02B35 /* SwiftScript.command */,
+				37396F9B256EEC4F007F3C60 /* MacScript.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		37D71DC62590FBAE001D2464 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				37D71DC72590FBC0001D2464 /* AttributedString.swift */,
+				37D71DC92590FBC0001D2464 /* String+NSRange.swift */,
+				37D71DC82590FBC0001D2464 /* TextView+Additions.swift */,
+			);
+			path = "Helper Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +221,6 @@
 				37396F96256EEC4F007F3C60 /* Assets.xcassets in Resources */,
 				37396F99256EEC4F007F3C60 /* Main.storyboard in Resources */,
 				3745769C257313E000D02B35 /* SwiftScript.command in Resources */,
-				37396FB62572F04F007F3C60 /* Extensions in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,19 +231,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D71DCA2590FBC0001D2464 /* AttributedString.swift in Sources */,
 				37396FA2256EF1D7007F3C60 /* ScriptFileHandler.swift in Sources */,
 				37396FA825729E07007F3C60 /* InputProcessor.swift in Sources */,
 				37396FB42572EDF6007F3C60 /* ConsoleView.swift in Sources */,
 				37396F94256EEC4E007F3C60 /* ViewController.swift in Sources */,
+				37D71DCC2590FBC0001D2464 /* String+NSRange.swift in Sources */,
 				37396F92256EEC4E007F3C60 /* AppDelegate.swift in Sources */,
-				37654A82257434210038BEDF /* TextView+Additions.swift in Sources */,
 				37396FA4256F00A0007F3C60 /* ConsoleOutputHandler.swift in Sources */,
 				37D71DBE2590ECDD001D2464 /* FileHandlerInterface.swift in Sources */,
 				37396FA6257280EA007F3C60 /* LineNumberRulerView.swift in Sources */,
 				37654A8625743B510038BEDF /* ConsoleLogType.swift in Sources */,
 				37396FAA25729F2A007F3C60 /* ScriptRunner.swift in Sources */,
 				37654A8425743AE20038BEDF /* ErrorLog.swift in Sources */,
-				37ECE9AC257552A60015C356 /* String+NSRange.swift in Sources */,
+				37D71DCB2590FBC0001D2464 /* TextView+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

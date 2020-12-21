@@ -13,14 +13,17 @@ final public class ScriptFileHandler: FileHanderInterface {
     static let fileName = "Script.swift"
     static let folderName = "MacScript"
 
-   /**
-       @output : retuns the tuple of status and file path
-     */
-   
+    /// Returns the file url used for saving input script
     public static func getFilePathURL() -> URL {
            return getFolderPath().appendingPathComponent(fileName)
     }
     
+    /**
+     Saves the inpur text to a Swift file
+     - Parameters:
+     -  input: The input text
+     - Returns: The tuple of Operation status, and filePath is save is successfull.
+     */
     public func saveToFile(_ input:String?)-> (Bool,String?) {
         guard let input = input else { return (false, nil) }
         let folderPath = ScriptFileHandler.getFolderPath()
@@ -36,6 +39,15 @@ final public class ScriptFileHandler: FileHanderInterface {
         }
     }
     
+    /**
+     Creates the file (if does not exists). This will create an empty file for the first time. From next time on, the input bytes would be written directly to the file.
+     
+     - Parameters:
+     - path: Directory of the folder in which file is to be saved.
+     - file name: Name of File
+     - Input: The content of the file
+     */
+    
    private func checkAndCreateFileIfNotExists(at path:URL, filename:String,_ input:String){
         let filePathStr = path.absoluteString
         let fileManager = FileManager.default
@@ -50,8 +62,6 @@ final public class ScriptFileHandler: FileHanderInterface {
             catch{
                 print(error.localizedDescription)
             }
-            
-            
         }
     }
     
@@ -61,8 +71,9 @@ final public class ScriptFileHandler: FileHanderInterface {
         return ScriptFileHandler.getDocumentsDirectory().appendingPathComponent(folderName)
     }
     
+    ///NSDocumentDirectory path
     private static func getDocumentsDirectory() -> URL {
-       let paths =  NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let paths =  NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         return URL(string: paths)!
     }
 }

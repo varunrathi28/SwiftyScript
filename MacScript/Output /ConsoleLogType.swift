@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Types of Log types:- Error/ Output
 public enum ConsoleLogType {
     case standardOutput
     case standardError

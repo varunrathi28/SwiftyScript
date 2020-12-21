@@ -158,8 +158,7 @@ class ViewController: NSViewController {
         }
         
     }
-
-
+    
     func captureStandardOutputAndRouteToTextView(_ task:Process) {
         
         // Initialize the pipe
@@ -168,32 +167,27 @@ class ViewController: NSViewController {
         task.standardOutput = outputPipe
         task.standardError = errorPipe
         
-        // Open stream for reading changes
-        outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        
-        // Observer for STD ERRor
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: errorPipe.fileHandleForReading, queue: nil) {
-            notification in
-            
-            let error = self.errorPipe.fileHandleForReading.availableData
-            let errorString = String(data: error, encoding: String.Encoding.utf8) ?? ""
-            
-            self.consoleErrorHandler.addToLogs(errorString, outputType: .standardError, color: .red, global: true)
-            self.errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        }
-        
-        //Observer for STD Output
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading , queue: nil) {
-            notification in
-            // Parse and add to console logs
-            let output = self.outputPipe.fileHandleForReading.availableData
-            let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
-            self.consoleErrorHandler.addToLogs(outputString, outputType: .standardOutput, color: .green, global: true)
-            self.outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        //Standard Output
+        addObserverForReadingFromStandardPipe(outputPipe)
+        //Standard Error
+        addObserverForReadingFromStandardPipe(errorPipe, isErrorPipe: true)
+    }
+
+     
+    func addObserverForReadingFromStandardPipe(_ pipe:Pipe, isErrorPipe:Bool = false){
+        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: errorPipe.fileHandleForReading, queue: nil){ notification in
+          
+            let standardResult = pipe.fileHandleForReading.availableData
+            let resultString = String(data: standardResult, encoding: String.Encoding.utf8) ?? ""
+            if isErrorPipe {
+                self.consoleErrorHandler.addToLogs(resultString, outputType: .standardError, color: .red, global: true)
+            }
+            else{
+                self.consoleErrorHandler.addToLogs(resultString, outputType: .standardOutput, color: .green, global: true)
+            }
         }
     }
-    
 }
 
     

@@ -91,10 +91,3 @@ class ConsoleView: NSTextView {
        }
 }
 
-
-extension NSAttributedString {
-    public class func breakLine() -> NSAttributedString {
-        return NSAttributedString(string: "\n")
-    }
-    
-}

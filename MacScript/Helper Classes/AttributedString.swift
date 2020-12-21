@@ -8,7 +8,7 @@
 
 import Foundation
 public  extension NSAttributedString {
-    public class func breakLine() -> NSAttributedString {
+     class func breakLine() -> NSAttributedString {
         return NSAttributedString(string: "\n")
     }
     
